@@ -613,6 +613,8 @@ set( COMMONLIST
   ${COMMON_DIR}/Command.h
   ${COMMON_DIR}/Cvar.cpp
   ${COMMON_DIR}/Cvar.h
+  ${COMMON_DIR}/DebugDraw.cpp
+  ${COMMON_DIR}/DebugDraw.h
   ${COMMON_DIR}/DisjointSets.h
   ${COMMON_DIR}/FileSystem.cpp
   ${COMMON_DIR}/FileSystem.h
@@ -728,6 +730,8 @@ set( ENGINELIST
   ${ENGINE_DIR}/framework/ConsoleField.h
   ${ENGINE_DIR}/framework/ConsoleHistory.cpp
   ${ENGINE_DIR}/framework/ConsoleHistory.h
+  ${ENGINE_DIR}/framework/DebugDrawSystem.cpp
+  ${ENGINE_DIR}/framework/DebugDrawSystem.h
   ${ENGINE_DIR}/framework/LogSystem.cpp
   ${ENGINE_DIR}/framework/LogSystem.h
   ${ENGINE_DIR}/framework/Resource.cpp

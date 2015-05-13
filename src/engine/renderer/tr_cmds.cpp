@@ -623,6 +623,34 @@ void RE_ScissorSet( int x, int y, int w, int h )
 	cmd->h = h;
 }
 
+void R_DebugLine(Vec3 start, Vec3 end, float width, Vec4 color) {
+    debugLineCommand_t* cmd = (debugLineCommand_t*) R_GetCommandBuffer(sizeof(debugLineCommand_t));
+
+    if (!cmd) {
+        return;
+    }
+
+    cmd->commandId = RC_DEBUGLINE;
+    cmd->start = start;
+    cmd->end = end;
+    cmd->width = width;
+    cmd->color = color;
+}
+
+void R_DebugSphere(Vec3 center, float radius, Vec4 color) {
+    debugSphereCommand_t* cmd = (debugSphereCommand_t*) R_GetCommandBuffer(sizeof(debugSphereCommand_t));
+
+    if (!cmd) {
+        return;
+    }
+
+    cmd->commandId = RC_DEBUGSPHERE;
+    cmd->center = center;
+    cmd->radius = radius;
+    cmd->color = color;
+}
+
+
 /*
 =============
 RE_RotatedPic

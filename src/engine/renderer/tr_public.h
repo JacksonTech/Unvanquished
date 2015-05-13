@@ -135,8 +135,9 @@ typedef struct
 
 	void ( *RemapShader )( const char *oldShader, const char *newShader, const char *offsetTime );
 
-	void ( *DrawDebugPolygon )( int color, int numpoints, float *points );
-	void ( *DrawDebugText )( const vec3_t org, float r, float g, float b, const char *text, bool neverOcclude );
+    // Debug draw
+    void (*DrawDebugLine) (Vec3 start, Vec3 end, float width, Vec4 color);
+    void (*DrawDebugSphere) (Vec3 center, float radius, Vec4 color);
 
 	bool( *GetEntityToken )( char *buffer, int size );
 
