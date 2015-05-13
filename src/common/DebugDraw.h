@@ -56,7 +56,7 @@ namespace DebugDraw {
             Child Color(Vec4 color);
      
         protected:
-            Data& data = nullptr;
+            Data& data;
         };
      
         struct LineContinuation : public BaseContinuation<LineContinuation, LineData> {
