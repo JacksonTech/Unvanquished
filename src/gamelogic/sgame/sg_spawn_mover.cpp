@@ -2095,6 +2095,7 @@ TRAIN
 
 #define TRAIN_START_OFF   1
 #define TRAIN_BLOCK_STOPS 2
+#define CORNER_PAUSE 1
 
 /*
 ===============
@@ -2114,6 +2115,8 @@ void Think_BeginMoving( gentity_t *self )
 Reached_Train
 ===============
 */
+void Stop_Train( gentity_t *self );
+
 void func_train_reached( gentity_t *self )
 {
 	gentity_t *next;
@@ -2170,6 +2173,15 @@ void func_train_reached( gentity_t *self )
 	if ( self->spawnflags & TRAIN_START_OFF )
 	{
 		self->s.pos.trType = TR_STATIONARY;
+		return;
+	}
+	
+	G_Printf( S_WARNING "corner spawnflags: %d\n", next->spawnflags );
+	
+	// if instructed to wait at this corner, wait
+	if ( next->spawnflags & CORNER_PAUSE )
+	{
+		Stop_Train( self );
 		return;
 	}
 
